@@ -8,10 +8,12 @@ class Connector
 
   protected static function create_image($url, $token, $params = null) 
   {
+  
   }
 
   protected static function get_image($token)
   {
+ 
   }
 
 
@@ -30,13 +32,12 @@ class Connector
       throw new Exception($error);
     }
 
-
     curl_close($ch);
     return $result;
   }
 
 
-  private function _curlOptionExecutor($method, $token, $params)
+  private function _curlOptionExecutor($method, $token, $params = null)
   {
     
     $options = array(
