@@ -4,20 +4,36 @@ class Connector
 {
   const REQ_GET = 'GET';
   const REQ_POST = 'POST';
-  const BASE_API_URL = 'https://kseq.datawow.io/api/'
+  const BASE_API_URL = 'https://kseq.datawow.io/api/';
 
-  protected static function create_image($url, $token, $params = null) 
+  protected static function getInstance($className)
   {
-  
+    if (class_exists($className)){
+      return new $className();
+    }
+
+    throw new Exception('Class name not found!!');
+  }
+
+  protected static function create_image($className, $url, $token, $params = null) 
+  {
+    $caller = call_user_func('getInstance', $className);
+    $result = $caller->_curlExcutor(self::REQ_POST, $url, $token, $params);
+
+    return $result;
   }
 
   protected static function get_image($token)
   {
- 
+    
+    $caller = call_user_func('getInstance', $className);
+    $result = $caller->_curlExcutor(self::REQ_GET, $url, $token, $params);
+
+    return $result;
   }
 
 
-  private function _curlExcutor($method, $token, $params = null) 
+  private function _curlExcutor($method, $url, $token, $params = null) 
   {
     $ch = curl_init(self::BASE_APU_URL.$url);
     curl_setopt_array($ch, $this->_curlOptionExecutor($method, $token,  $params))
@@ -33,6 +49,7 @@ class Connector
     }
 
     curl_close($ch);
+
     return $result;
   }
 
