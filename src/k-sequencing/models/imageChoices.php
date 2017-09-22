@@ -12,9 +12,9 @@ class ImageChoices extends Connector
     return parent::create_image(get_class(), self::url_endpoint, $token, $params);
   }
 
-  public static function get($className, $token)
+  public static function get($token, $params = array())
   {
     $params = array('page' => 0, 'paerPage' => 20);
-    return parent::get_image(get_class(), self::url_endpoint, $toekn, $params);
+    return parent::get_image(get_class(), self::url_endpoint, $token, $params);
   }
 } 

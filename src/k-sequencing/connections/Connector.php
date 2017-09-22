@@ -23,7 +23,7 @@ class Connector
     return $result;
   }
 
-  protected static function get_image($className, $url, $token)
+  protected static function get_image($className, $url, $token, $params = null)
   {
     
     $caller = call_user_func(array($className, 'getInstance'), $className);
@@ -38,9 +38,6 @@ class Connector
     $ch = curl_init(self::BASE_API_URL.$url);
     curl_setopt_array($ch, $this->_curlOptionExecutor($method, $token,  $params));
     
-    $verbose = fopen(dirname(__FILE__).'../../dev-log.txt', 'w'); 
-    curl_setopt($ch, CURLOPT_STDERR, $verbose);
-
     $result = curl_exec($ch);
 
     if(curl_getinfo($ch, CURLINFO_HTTP_CODE) >= 400) 
