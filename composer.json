@@ -18,8 +18,8 @@
     "phpunit/phpunit": "5.2.*"
   },
   "autoload": {
-    "psr-4": {
-      "ksequencing": "src/"
-    }
+    "classmap": [
+      "src/handle/"
+    ]    
   }
 }
