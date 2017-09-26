@@ -7,7 +7,10 @@ k-sequencing-php is rest library for php version
 * Built-in libcurl support.
 
 # Installation 
+```json
+"datawow/ksequencing-php": "dev-master"
 
+```
 # Usage 
 
 # Response 
