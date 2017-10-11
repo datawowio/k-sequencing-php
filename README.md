@@ -143,8 +143,7 @@ ImageChoices::get_id($project_token, $params);
 
 
 ----------
-#### Image Closed Question ImageClosedQuestions
-
+#### Image Closed Question
 ##### Get list
 ```php
 ImageClosedQuestions::get($project_token, $params);
