@@ -21,7 +21,7 @@ class Predictions extends Connector
   
   public static function get_id($token, $params = array())
   {
-    return parent::get_image(get_class(), self::url_endpoint + "/" + $params["id"], $token, $params);
+    return parent::get_image(get_class(), self::url_endpoint."/".$params["id"], $token, nil);
   }
 
 } 

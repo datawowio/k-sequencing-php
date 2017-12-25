@@ -111,10 +111,10 @@ Array
 ImageChoices::get($project_token, $params);
 ```
 ##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *page* **(string, optional)**: Default 0
-> - *limit* **(string, optional)**: Default 20
-
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :-----:| :-----|
+| page     | 	interger | No | default 0|
+| per_page 	     | string      | No | default 20 |
 
  
 ##### Create
@@ -122,14 +122,17 @@ ImageChoices::get($project_token, $params);
 ImageChoices::create($project_token, $params);
 ```
 ##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *instruction* **(string, require)**
-> - *categories* **(string group, require)**: separate group by space ``` name1 name2 name3 ```
-> - *data* **(string URL, require, optional)**
-> - *postback_url* **(string URL, optional)**
-> - *multiple* **(boolean, optional)**: Default is ``` false ```
-> - *postback_method* **(string, optional)**: Default with your project setting. if you set this parameter that will be override your default setting
-> - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
+
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :-----:| :-----|
+| instruction	     | string      |   Yes | Image instruction|
+|categories | Array[string]     |    Yes | Categories of answers |
+| data     | 	string | Yes |Data for attachment|
+| postback_url	     | string      |  No | Image postback url|
+|multiple | boolean   |    No | true for multiple answer and false for one answer |
+| postback_method     | 	string | No |Postback method|
+| custom_id	     | string      |   No |Custom's id|
+| allow_empty	     | boolean      |   No |Allow sent answer with empty choice. default is `false`|
 
 
 ##### Find by ID 
@@ -138,20 +141,25 @@ ImageChoices::create($project_token, $params);
 ImageChoices::get_id($project_token, $params);
 ```
 ##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *id* **(string, optional)**: Default 0
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :----:| :-----|
+| id	     | string  |   No | Image id|
+|custom_id | string |    No | Client's image id |
 
 
+<enter>
 ----------
+
 #### Image Closed Question
 ##### Get list
 ```php
 ImageClosedQuestions::get($project_token, $params);
 ```
 ##### params
-> - *page* **(string, optional)**: Default 0
-> - *limit* **(string, optional)**: Default 20
-
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :-----:| :-----|
+| page     | 	interger | No | default 0|
+| per_page 	     | string      | No | default 20 |
 
  
 ##### Create
@@ -159,11 +167,12 @@ ImageClosedQuestions::get($project_token, $params);
 ImageClosedQuestions::create($project_token, $params);
 ```
 ##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *data* **(string URL, require, optional)**
-> - *postback_url* **(string URL, optional)**
-> - *postback_method* **(string, optional)**: Default with your project setting. if you set this parameter that will be override your default setting
-> - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :-----:| :-----|
+| data     | 	string | Yes |Data for moderate|
+| postback_url	     | string      | No | Image postback url|
+| postback_method     | 	string | No |Postback method|
+| custom_id	     | string      |   No |Custom's id|
 
 
 ##### Find by ID 
@@ -172,9 +181,13 @@ ImageClosedQuestions::create($project_token, $params);
 ImageClosedQuestions::get_id($project_token, $params);
 ```
 ##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *id* **(string, optional)**: Default 0
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :----:| :-----|
+| id	     | string      |   No | Image id|
+| custom_id | string     |    No | Client's image id |
 
+
+<enter>
 ----------
 #### Image Messages
 
@@ -183,8 +196,10 @@ ImageClosedQuestions::get_id($project_token, $params);
 ImageMessages::get($project_token, $params);
 ```
 ##### params
-> - *page* **(string, optional)**: Default 0
-> - *limit* **(string, optional)**: Default 20
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :-----:| :-----|
+| page     | 	interger | No | default 0|
+| per_page 	     | string      | No | default 20 |
 
 
  
@@ -193,12 +208,13 @@ ImageMessages::get($project_token, $params);
 ImageMessages::create($project_token, $params);
 ```
 ##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *instruction* **(string, require)**
-> - *data* **(string URL, require, optional)**
-> - *postback_url* **(string URL, optional)**
-> - *postback_method* **(string, optional)**: Default with your project setting. if you set this parameter that will be override your default setting
-> - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :-----:| :-----|
+| instruction	     | string      |   Yes | Image instruction|
+| data     | 	string | Yes |Data for attachment|
+| postback_url	     | string      | No | Image postback url|
+| postback_method     | 	string | No |Postback method|
+| custom_id	     | string      |   No |Custom's id|
 
 
 ##### Find by ID 
@@ -207,9 +223,12 @@ ImageMessages::create($project_token, $params);
 ImageMessages::get_id($project_token, $params);
 ```
 ##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *id* **(string, optional)**: Default 0
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :----:| :-----|
+| id	     | string      |   No | Image id|
+|custom_id | string     |    No | Client's image id |
 
+<enter>
 ----------
 #### Photo tags
 
@@ -218,8 +237,10 @@ ImageMessages::get_id($project_token, $params);
 ImagePhotoTags::get_id($project_token, $params);
 ```
 ##### params
-> - *page* **(string, optional)**: Default 0
-> - *limit* **(string, optional)**: Default 20
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :----:| :-----|
+| id	     | string      |   No | Image id|
+|custom_id | string     |    No | Client's image id |
 
 
  
@@ -228,12 +249,13 @@ ImagePhotoTags::get_id($project_token, $params);
 ImagePhotoTags::create($project_token, $params);
 ```
 ##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *instruction* **(string, require)**
-> - *data* **(string URL, require, optional)**
-> - *postback_url* **(string URL, optional)**
-> - *postback_method* **(string, optional)**: Default with your project setting. if you set this parameter that will be override your default setting
-> - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :-----:| :-----|
+| instruction	     | string      |   Yes | Image instruction|
+| data     | 	string | Yes |Data for attachment|
+| postback_url	     | string      | No | Image postback url|
+| postback_method     | 	string | No |Postback method|
+| custom_id	     | string      |   No |Custom's id|
 
 
 ##### Find by ID 
@@ -242,6 +264,47 @@ ImagePhotoTags::create($project_token, $params);
 ImagePhotoTags::get_id($project_token, $params);
 ```
 ##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *id* **(string, optional)**: Default 0
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :----:| :-----|
+| id	     | string      |   No | Image id|
+|custom_id | string     |    No | Client's image id |
 
+
+<enter>
+----------
+#### Prediction
+
+##### Get list
+```php
+Predictions::get($project_token, $params);
+```
+##### params
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :-----:| :-----|
+| page     | 	interger | No | default 0|
+| per_page 	     | string      | No | default 20 |
+
+ 
+##### Create
+```js
+Predictions::create($project_token, $params);
+```
+##### params
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :-----:| :-----|
+| data     | 	string | Yes |Data for attachment|
+| postback_url	     | string      | No | Image postback url|
+| postback_method     | 	string | No |Postback method|
+| custom_id	     | string      |   No |Custom's id|
+
+
+##### Find by ID 
+
+```php
+Predictions::get_id($project_token, $params);
+```
+##### params
+| Field        | Type           | Required  | Description |
+| ------------- |:-------------:| :----:| :-----|
+| id	     | string      |   No | Image id|
+|custom_id | string     |    No | Client's image id |
