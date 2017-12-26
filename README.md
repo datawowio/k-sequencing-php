@@ -1143,8 +1143,8 @@ Array
                     [answer] => human
                     [credit_charged] => 0
                     [custom_id] =>
-                    [data] => https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg
-                    [postback_url] => https://kseq.datawow.io/
+                    [data] => https://your.url/
+                    [postback_url] => https://your.url/
                     [processed_at] => 2017-12-26T15:19:57.005+07:00
                     [project_id] => 78
                     [status] => processed
