@@ -112,7 +112,7 @@ Array
 ------------------------------------
 
 # Choices 
-[Standard Criteria (5 mins response time)]
+[Yes or No Question from Image (30 mins response time)]
 
 ## Get list
 ```php
@@ -123,6 +123,8 @@ ImageChoices::get($project_token, $params);
 | ------------- |:-------------:| :-----:| :-----|
 | page     | 	interger | No | default 0|
 | per_page 	     | string      | No | default 20 |
+
+Note: You must choose id or custom_id for search. Not both.
 
 ##### --- Example 
 
@@ -226,6 +228,8 @@ ImageChoices::create($project_token, $params);
 | custom_id	     | string      |   No |Custom's id|
 | allow_empty	     | boolean      |   No |Allow sent answer with empty choice. default is `false`|
 
+Note: Answer can choose only one is default. If you want answer to be multiple, you need to set ```multiple``` to true.
+
 ##### --- Example 
 
 Request
@@ -290,6 +294,7 @@ ImageChoices::get_id($project_token, $params);
 | id	     | string  |   No | Image id|
 |custom_id | string |    No | Client's image id |
 
+Note: You must choose id or custom_id for search. Not both.
 
 ##### --- Example 
 
@@ -348,7 +353,8 @@ Array
 ----------
 
 # Closed Questions
-[Yes or No Question from Image (30 mins response time)]
+[Standard Criteria (5 mins response time)]
+
 
 ## Get list
 ```php
@@ -479,6 +485,8 @@ ImageClosedQuestions::get_id($project_token, $params);
 | ------------- |:-------------:| :----:| :-----|
 | id	     | string      |   No | Image id|
 | custom_id | string     |    No | Client's image id |
+
+Note: You must choose id or custom_id for search. Not both.
 
 ##### --- Example 
 
@@ -660,6 +668,8 @@ ImageMessages::get_id($project_token, $params);
 | id	     | string      |   No | Image id|
 |custom_id | string     |    No | Client's image id |
 
+Note: You must choose id or custom_id for search. Not both.
+
 ##### --- Example 
 
 Request
@@ -716,6 +726,8 @@ ImagePhotoTags::get_id($project_token, $params);
 | ------------- |:-------------:| :----:| :-----|
 | id	     | string      |   No | Image id|
 |custom_id | string     |    No | Client's image id |
+
+Note: You must choose id or custom_id for search. Not both.
 
 ##### --- Example 
 
@@ -846,7 +858,6 @@ ImagePhotoTags::create($project_token, $params);
 | postback_method     | 	string | No |Postback method|
 | custom_id	     | string      |   No |Custom's id|
 
-
 ##### --- Example 
 
 Request
@@ -899,6 +910,8 @@ ImagePhotoTags::get_id($project_token, $params);
 | id	     | string      |   No | Image id|
 |custom_id | string     |    No | Client's image id |
 
+Note: You must choose id or custom_id for search. Not both.
+
 ##### --- Example 
 
 Request
@@ -930,7 +943,6 @@ Array
                     [project_id] => 72
                     [status] => unprocess
                 )
-
         )
 
     [meta] => Array
@@ -938,7 +950,6 @@ Array
             [code] => 200
             [message] => success
         )
-
 )
 
 ```
@@ -1019,7 +1030,6 @@ Array
             [total_pages] => 1
             [total_count] => 2
         )
-
 )
 ```
  
@@ -1032,7 +1042,6 @@ Predictions::create($project_token, $params);
 | ------------- |:-------------:| :-----:| :-----|
 | data     | 	string | Yes |Data for attachment|
 | postback_url	     | string      | No | Image postback url|
-| postback_method     | 	string | No |Postback method|
 | custom_id	     | string      |   No |Custom's id|
 
 
@@ -1067,7 +1076,6 @@ Array
             [code] => 200
             [message] => success
         )
-
 )
 ```
 
@@ -1081,6 +1089,10 @@ Predictions::get_id($project_token, $params);
 | ------------- |:-------------:| :----:| :-----|
 | id	     | string      |   No | Image id|
 |custom_id | string     |    No | Client's image id |
+
+Note:
+- You must choose id or custom_id for search. Not both.
+- Image data dynamic by project token.
 
 
 ##### --- Example 
@@ -1124,7 +1136,7 @@ Array
 
 ```
 
-## This is a compare a reponse of each type Prediction 
+## This is a compare reponse of each type of Prediction 
 
 For each type of AI prediction will return a difference ```answer``` field, Please make sure you understand each of structure
 
