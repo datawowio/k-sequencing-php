@@ -128,7 +128,7 @@ ImageChoices::get($project_token, $params);
 
 Note: You must choose id or custom_id for search. Not both.
 
-##### --- Example 
+## Example  
 
 Request 
 
@@ -232,7 +232,7 @@ ImageChoices::create($project_token, $params);
 
 Note: Answer can choose only one is default. If you want answer to be multiple, you need to set ```multiple``` to true.
 
-##### --- Example 
+## Example  
 
 Request
 ```php
@@ -298,7 +298,7 @@ ImageChoices::get_id($project_token, $params);
 
 Note: You must choose id or custom_id for search. Not both.
 
-##### --- Example 
+## Example  
 
 Request
 
@@ -368,7 +368,7 @@ ImageClosedQuestions::get($project_token, $params);
 | page     | 	interger | No | default 0|
 | per_page 	     | string      | No | default 20 |
 
-##### --- Example 
+## Example  
 
 Request
 ```php
@@ -441,7 +441,7 @@ ImageClosedQuestions::create($project_token, $params);
 | postback_method     | 	string | No |Postback method|
 | custom_id	     | string      |   No |Custom's id|
 
-##### --- Example 
+## Example  
 
 Request
 ```php
@@ -490,7 +490,7 @@ ImageClosedQuestions::get_id($project_token, $params);
 
 Note: You must choose id or custom_id for search. Not both.
 
-##### --- Example 
+## Example  
 
 Request
 ```php 
@@ -544,7 +544,7 @@ ImageMessages::get($project_token, $params);
 | page     | 	interger | No | default 0|
 | per_page 	     | string      | No | default 20 |
 
-##### --- Example 
+## Example  
 
 Request
 ```php 
@@ -619,7 +619,7 @@ ImageMessages::create($project_token, $params);
 | postback_method     | 	string | No |Postback method|
 | custom_id	     | string      |   No |Custom's id|
 
-##### --- Example 
+## Example  
 
 Request
 ```php 
@@ -672,7 +672,7 @@ ImageMessages::get_id($project_token, $params);
 
 Note: You must choose id or custom_id for search. Not both.
 
-##### --- Example 
+## Example  
 
 Request
 ```php 
@@ -731,7 +731,7 @@ ImagePhotoTags::get_id($project_token, $params);
 
 Note: You must choose id or custom_id for search. Not both.
 
-##### --- Example 
+## Example  
 
 Request
 ```php 
@@ -860,7 +860,7 @@ ImagePhotoTags::create($project_token, $params);
 | postback_method     | 	string | No |Postback method|
 | custom_id	     | string      |   No |Custom's id|
 
-##### --- Example 
+## Example  
 
 Request
 ```php 
@@ -916,7 +916,7 @@ ImagePhotoTags::get_id($project_token, $params);
 
 Note: You must choose id or custom_id for search. Not both.
 
-##### --- Example 
+## Example  
 
 Request
 ```php 
@@ -979,7 +979,7 @@ Predictions::get($project_token, $params);
 | page     | 	interger | No | default 0|
 | per_page 	     | string      | No | default 20 |
 
-##### --- Example 
+## Example 
 
 Request
 ```php 
@@ -1049,7 +1049,7 @@ Predictions::create($project_token, $params);
 | custom_id	     | string      |   No |Custom's id|
 
 
-##### --- Example 
+## Example  
 
 Request
 ```php 
@@ -1099,7 +1099,7 @@ Note:
 - Image data dynamic by project token.
 
 
-##### --- Example 
+## Example  
 
 Request
 ```php 
