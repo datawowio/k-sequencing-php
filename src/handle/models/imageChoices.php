@@ -6,8 +6,8 @@ require_once dirname(__FILE__).'/../connections/Connector.php';
 class ImageChoices extends Connector
 {
   const url_endpoint = 'images/choices';
-  const url_find_by_id = 'images/choice';
-  
+  const url_find_by_id = 'projects/images';
+
   public static function create($token, $params = array())
   {
     return parent::create_image(get_class(), self::url_endpoint, $token, $params);
@@ -22,7 +22,7 @@ class ImageChoices extends Connector
   
   public static function get_id($token, $params = array())
   {
-    return parent::get_image(get_class(), self::url_find_by_id , $token, $params);
+    return parent::get_image(get_class(), self::url_find_by_id.'/'.$params['id'], $token, null);
   }
 
 } 
