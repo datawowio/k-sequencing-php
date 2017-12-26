@@ -124,9 +124,7 @@ ImageChoices::get($project_token, $params);
 | page     | 	interger | No | default 0|
 | per_page 	     | string      | No | default 20 |
 
-Note:
-- You must choose id or custom_id for search. Not both.
-- Image data dynamic by project token.
+Note: You must choose id or custom_id for search. Not both.
 
 ##### --- Example 
 
