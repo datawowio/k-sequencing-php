@@ -1033,7 +1033,6 @@ Predictions::create($project_token, $params);
 | ------------- |:-------------:| :-----:| :-----|
 | data     | 	string | Yes |Data for attachment|
 | postback_url	     | string      | No | Image postback url|
-| postback_method     | 	string | No |Postback method|
 | custom_id	     | string      |   No |Custom's id|
 
 
