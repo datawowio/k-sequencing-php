@@ -232,7 +232,7 @@ Request
 ```php
 $project_token = 'xkA4eW3ZPHD17Pj81xBY5V7Q';
 $params = array('instruction' => 'animal',
-				'categories' => 'dog cat pig', 
+		'categories' => 'dog cat pig', 
                 'data' => 'https://your.url/', 
                 'postback_url' => 'https://your.url/', 
                 'multiple' => true);
@@ -345,8 +345,6 @@ Array
 )
 ```
 
-
-<enter>
 ----------
 
 # Image Closed Question
@@ -522,9 +520,8 @@ Array
 
 ```
 
-
-<enter>
 ----------
+
 # Messages
 [Message Question from Image (30 mins response time)]
 ## Get list
@@ -599,7 +596,6 @@ Array
 )
 ```
 
- 
 ## Create
 ```js
 ImageMessages::create($project_token, $params);
@@ -651,7 +647,6 @@ Array
 )
 
 ```
-
 
 
 ## Find by ID 
@@ -707,8 +702,8 @@ Array
 
 ```
 
-<enter>
 ----------
+
 # Photo tags
 [Tag an object in the image (60 mins response time)]
 
@@ -838,7 +833,6 @@ Array
 
 ```
 
- 
 ## Create
 ```php
 ImagePhotoTags::create($project_token, $params);
@@ -949,9 +943,8 @@ Array
 
 ```
 
-
-<enter>
 ----------
+
 # Prediction
 
 Images (AI Beta / 95% accuracy)
