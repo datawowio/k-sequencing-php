@@ -40,22 +40,24 @@ require_once dirname(__FILE__).'/vendor/autoload.php';
 
 require_once dirname(__FILE__).'/vendor/autoload.php';
 
-$params = array('instruction' => 'face', 'categories' => 'face eye ear', 'data' => 'www.url-of-image.com', 'postback_url' => 'www.your-callback.url', 'multiple' => true);
+$params = array('instruction' => 'face', 
+		'categories' => 'face eye ear', 
+		'data' => 'www.url-of-image.com', 
+		'postback_url' => 'www.your-callback.url', 
+		'multiple' => true);
 
-$project_token = 'yourToekn'
-
+$project_token = 'yourToekn';
 $res = ImageChoices::create($project_token, $params);
-$res = json_decode($res, true);
-// print_r($res);
+// print_r(json_decode($s, true));
 
 // find by id
 $params = array('id' => $res["data"]["id"]);
 $res = ImageChoices::get_id($project_token, $params);
-// print_r(json_decode($s));
+// print_r(json_decode($s, true));
 
 // list all data 
 $res = ImageChoices::get($project_token);
-// print_r($res);
+// print_r(json_decode($s, true));
 
 
 ```
