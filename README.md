@@ -1123,3 +1123,157 @@ Array
 )
 
 ```
+
+## This is a compare a reponse of each type Prediction 
+
+For each type of AI prediction will return a difference ```answer``` field, Please make sure you understand each of structure
+
+#### [nanameue] Standard Criteria (~1 min)
+
+response
+
+```php 
+Array
+(
+    [data] => Array
+        (
+            [image] => Array
+                (
+                    [id] => 5a42062b60f4f15943f42d42
+                    [answer] => human
+                    [credit_charged] => 0
+                    [custom_id] =>
+                    [data] => https://your.url/
+                    [postback_url] => https://your.url/
+                    [processed_at] => 2017-12-26T15:19:57.005+07:00
+                    [project_id] => 78
+                    [status] => processed
+                )
+
+        )
+
+    [meta] => Array
+        (
+            [code] => 200
+            [message] => success
+        )
+
+)
+```
+
+----
+#### [sexual] Nudity/Sexual (~1 min)
+
+response
+
+```php 
+Array
+(
+    [data] => Array
+        (
+            [image] => Array
+                (
+                    [id] => 5a4204da60f4f15943f42d3f
+                    [answer] => Array
+                        (
+                            [sexual] => 0.00027116652927361
+                        )
+
+                    [credit_charged] => 0
+                    [custom_id] =>
+                    [data] => https://your.url/
+                    [postback_url] => https://your.url/
+                    [processed_at] => 2017-12-26T15:14:19.760+07:00
+                    [project_id] => 79
+                    [status] => processed
+                )
+
+        )
+
+    [meta] => Array
+        (
+            [code] => 200
+            [message] => success
+        )
+
+)
+```
+---
+#### [demographic] Demographic (~3 mins)
+Response
+```php 
+Array
+(
+    [data] => Array
+        (
+            [image] => Array
+                (
+                    [id] => 5a4206be60f4f15943f42d46
+                    [answer] => Array
+                        (
+                            [result] => Array
+                                (
+                                  [coordinates] => Array 
+                                  		(
+		                                    [x_max] => 747.9999554157257
+        		                            [x_min] => 0.0
+                		                    [y_max] => 573.0054758787155
+                        		            [y_min] => 0.0
+                                  		)
+	                                  		[gender] => male
+                                )
+
+                        )
+
+                    [credit_charged] => 0
+                    [custom_id] =>
+                    [data] => https://your.url/
+                    [postback_url] => https://your.url/
+                    [processed_at] => 2017-12-26T15:22:37.540+07:00
+                    [project_id] => 80
+                    [status] => processed
+                )
+
+        )
+
+    [meta] => Array
+        (
+            [code] => 200
+            [message] => success
+        )
+
+)
+```
+
+---
+
+#### [ai_human] Standard Criteria & Human
+Response
+```php 
+Array
+(
+    [data] => Array
+        (
+            [image] => Array
+                (
+                    [id] => 5a4207e960f4f15943f42d4a
+                    [answer] => approved 
+                    [credit_charged] => 0
+                    [custom_id] =>
+                    [data] => https://your.url/
+                    [postback_url] => https://your.url/
+                    [processed_at] => 2017-12-26T15:27:22.972+07:00
+                    [project_id] => 81
+                    [status] => processed
+                )
+
+        )
+
+    [meta] => Array
+        (
+            [code] => 200
+            [message] => success
+        )
+
+)
+```
