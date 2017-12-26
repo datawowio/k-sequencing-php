@@ -1124,7 +1124,7 @@ Array
 
 ```
 
-## This is a compare a reponse of each type Prediction 
+## This is a compare reponse of each type of Prediction 
 
 For each type of AI prediction will return a difference ```answer``` field, Please make sure you understand each of structure
 
