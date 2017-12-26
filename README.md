@@ -622,7 +622,7 @@ ImageMessages::create($project_token, $params);
 Request
 ```php 
 $params = array('instruction' => 'face',
-				'data' => 'https://your.url/', 
+		'data' => 'https://your.url/', 
                 'postback_url' => 'https://your.url/';
 $project_token = '3paHN4Jx2EeEERCHupPMkHzs';
 $res= ImageMessages::create($project_token, $params);
@@ -862,7 +862,9 @@ ImagePhotoTags::create($project_token, $params);
 
 Request
 ```php 
-$params = array('instruction' => 'face', 'data' => 'https://your.url/', 'postback_url' => 'https://your.url/');
+$params = array('instruction' => 'face', 
+		'data' => 'https://your.url/', 
+		'postback_url' => 'https://your.url/');
 $project_token = 'ZwuaoaUHMYMHCbZh6TKUMpg7';
 $res= ImagePhotoTags::create($project_token, $params);
 ```
