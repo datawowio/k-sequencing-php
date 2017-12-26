@@ -104,14 +104,14 @@ Array
 
 ## List of API Provider
 
-* [Closed questions](#image-closed-questions)(Standard Criteria (5 mins response time)) - Answer can be only approved, declined or ban(kenta).
-* [Choices](#image-choices)(Yes or No Question from Image (30 mins response time)) - This model use to ask question with multiple choice. Anwser can be one or multiple.
+* [Closed questions](#closed-questions)(Standard Criteria (5 mins response time)) - Answer can be only approved, declined or ban(kenta).
+* [Choices](#choices)(Yes or No Question from Image (30 mins response time)) - This model use to ask question with multiple choice. Anwser can be one or multiple.
 * [Photo tags](#photo-tags)(Tag an object in the image (60 mins response time)) - This model use to create a selection area to find where answer is by drag the area on image from web page.
-* [Messages](#image-messages)(Message Question from Image (30 mins response time)) - This model allow moderator type the anwser on what they see.
-* [Prediction](#prediction)(Images (AI Beta / 95% accuracy)) - Use AI to prediction the result
+* [Messages](#messages)(Message Question from Image (30 mins response time)) - This model allow moderator type the anwser on what they see.
+* [Predictions](#predictions)(Images (AI Beta / 95% accuracy)) - Use AI to prediction the result
 ------------------------------------
 
-# Image Choices 
+# Choices 
 [Standard Criteria (5 mins response time)]
 
 ## Get list
@@ -347,7 +347,7 @@ Array
 
 ----------
 
-# Image Closed Question
+# Closed Questions
 [Yes or No Question from Image (30 mins response time)]
 
 ## Get list
@@ -945,7 +945,7 @@ Array
 
 ----------
 
-# Prediction
+# Predictions
 
 Images (AI Beta / 95% accuracy)
 
