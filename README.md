@@ -124,6 +124,10 @@ ImageChoices::get($project_token, $params);
 | page     | 	interger | No | default 0|
 | per_page 	     | string      | No | default 20 |
 
+Note:
+- You must choose id or custom_id for search. Not both.
+- Image data dynamic by project token.
+
 ##### --- Example 
 
 Request 
@@ -226,6 +230,8 @@ ImageChoices::create($project_token, $params);
 | custom_id	     | string      |   No |Custom's id|
 | allow_empty	     | boolean      |   No |Allow sent answer with empty choice. default is `false`|
 
+Note: Answer can choose only one is default. If you want answer to be multiple, you need to set ```multiple``` to true.
+
 ##### --- Example 
 
 Request
@@ -290,6 +296,7 @@ ImageChoices::get_id($project_token, $params);
 | id	     | string  |   No | Image id|
 |custom_id | string |    No | Client's image id |
 
+Note: You must choose id or custom_id for search. Not both.
 
 ##### --- Example 
 
@@ -481,6 +488,8 @@ ImageClosedQuestions::get_id($project_token, $params);
 | id	     | string      |   No | Image id|
 | custom_id | string     |    No | Client's image id |
 
+Note: You must choose id or custom_id for search. Not both.
+
 ##### --- Example 
 
 Request
@@ -661,6 +670,8 @@ ImageMessages::get_id($project_token, $params);
 | id	     | string      |   No | Image id|
 |custom_id | string     |    No | Client's image id |
 
+Note: You must choose id or custom_id for search. Not both.
+
 ##### --- Example 
 
 Request
@@ -717,6 +728,8 @@ ImagePhotoTags::get_id($project_token, $params);
 | ------------- |:-------------:| :----:| :-----|
 | id	     | string      |   No | Image id|
 |custom_id | string     |    No | Client's image id |
+
+Note: You must choose id or custom_id for search. Not both.
 
 ##### --- Example 
 
@@ -847,7 +860,6 @@ ImagePhotoTags::create($project_token, $params);
 | postback_method     | 	string | No |Postback method|
 | custom_id	     | string      |   No |Custom's id|
 
-
 ##### --- Example 
 
 Request
@@ -900,6 +912,8 @@ ImagePhotoTags::get_id($project_token, $params);
 | id	     | string      |   No | Image id|
 |custom_id | string     |    No | Client's image id |
 
+Note: You must choose id or custom_id for search. Not both.
+
 ##### --- Example 
 
 Request
@@ -931,7 +945,6 @@ Array
                     [project_id] => 72
                     [status] => unprocess
                 )
-
         )
 
     [meta] => Array
@@ -939,7 +952,6 @@ Array
             [code] => 200
             [message] => success
         )
-
 )
 
 ```
@@ -1020,7 +1032,6 @@ Array
             [total_pages] => 1
             [total_count] => 2
         )
-
 )
 ```
  
@@ -1067,7 +1078,6 @@ Array
             [code] => 200
             [message] => success
         )
-
 )
 ```
 
@@ -1081,6 +1091,10 @@ Predictions::get_id($project_token, $params);
 | ------------- |:-------------:| :----:| :-----|
 | id	     | string      |   No | Image id|
 |custom_id | string     |    No | Client's image id |
+
+Note:
+- You must choose id or custom_id for search. Not both.
+- Image data dynamic by project token.
 
 
 ##### --- Example 
