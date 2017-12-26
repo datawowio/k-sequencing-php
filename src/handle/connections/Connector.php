@@ -4,7 +4,7 @@ class Connector
 {
   const REQ_GET = 'GET';
   const REQ_POST = 'POST';
-  const BASE_API_URL = 'https://k-sequencing.datawow.io/api/';
+  const BASE_API_URL = 'https://kseq.datawow.io/api/';
 
   protected static function getInstance($className)
   {
