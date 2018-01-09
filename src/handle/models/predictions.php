@@ -6,6 +6,7 @@ require_once dirname(__FILE__).'/../connections/Connector.php';
 class Predictions extends Connector
 {
   const url_endpoint = 'prime/predictions';
+  const url_find_by_id = 'projects/images';
   
   public static function create($token, $params = array())
   {
@@ -18,10 +19,9 @@ class Predictions extends Connector
     return parent::get_image(get_class(), self::url_endpoint, $token, $params);
   }
 
-  
   public static function get_id($token, $params = array())
   {
-    return parent::get_image(get_class(), self::url_endpoint + "/" + $params["id"], $token, $params);
+    return parent::get_image(get_class(), self::url_find_by_id.'/'.$params['id'], $token, null);
   }
 
-} 
+}  
