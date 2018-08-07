@@ -2,6 +2,8 @@ vendor/
 composer.lock
 .DS_Store
 
+.php_cs.cache
+
 ### Vim ###
 # swap
 [._]*.s[a-v][a-z]
