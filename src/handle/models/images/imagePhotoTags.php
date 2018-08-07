@@ -2,10 +2,10 @@
 
 require_once dirname(__FILE__).'/../connections/Connector.php';
 
-class ImageMessages extends Connector 
+class ImagePhotoTag extends Connector 
 {
-  const url_endpoint = 'images/messages';
-  const url_find_by_id = 'images/message';
+  const url_endpoint = 'images/photo_tags';
+  const url_find_by_id = 'images/photo_tag';
 
   public static function create($token, $params = array())
   {

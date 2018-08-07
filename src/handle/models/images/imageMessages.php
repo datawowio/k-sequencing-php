@@ -2,11 +2,11 @@
 
 require_once dirname(__FILE__).'/../connections/Connector.php';
 
-class ImageClosedQuestions extends Connector 
+class ImageMessage extends Connector 
 {
-  const url_endpoint = 'images/closed_questions';
-  const url_find_by_id = 'images/closed_question';
-  
+  const url_endpoint = 'images/messages';
+  const url_find_by_id = 'images/message';
+
   public static function create($token, $params = array())
   {
     return parent::create_image(get_class(), self::url_endpoint, $token, $params);
@@ -23,4 +23,4 @@ class ImageClosedQuestions extends Connector
     return parent::get_image(get_class(), self::url_find_by_id , $token, $params);
   }
 
-} 
+}
