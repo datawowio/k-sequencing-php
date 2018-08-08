@@ -5,7 +5,8 @@ class Connector
 {
     const REQ_GET = 'GET';
     const REQ_POST = 'POST';
-    const BASE_API_URL = 'https://k-sequencing.datawow.io/api/';
+    const BASE_URL_IMAGES = '';
+    const BASE_URL_TEXTS = '';
 
     protected static function getInstance($className)
     {
@@ -63,7 +64,7 @@ class Connector
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_HTTPHEADER => array("Authorization: $token", 'Accept: application/json', 'Content-Type: application/x-www-form-urlencoded'),
       CURLOPT_POSTFIELDS => http_build_query($params),
-      CURLOPT_USERAGENT => 'KSequencing/0.0.1rc/PHP'.phpversion(),
+      CURLOPT_USERAGENT => 'KSequencing/0.1.0rc/PHP'.phpversion(),
     );
 
         return $options;
