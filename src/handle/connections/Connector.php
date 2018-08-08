@@ -1,12 +1,9 @@
 <?php
 
-
 class Connector
 {
     const REQ_GET = 'GET';
     const REQ_POST = 'POST';
-    const BASE_URL_IMAGES = '';
-    const BASE_URL_TEXTS = '';
 
     protected static function getInstance($className)
     {
@@ -17,7 +14,7 @@ class Connector
         throw new Exception('Class name not found!!');
     }
 
-    protected static function create($className, $url, $token, $params = null, $header = null)
+    protected static function create_data($className, $url, $token, $params = array(), $header = null)
     {
         $caller = call_user_func(array($className, 'getInstance'), $className);
         $result = $caller->_curlExcutor(self::REQ_POST, $url, $token, $params, $header);
@@ -25,14 +22,23 @@ class Connector
         return $result;
     }
 
-    protected static function retrive($className, $url, $token, $params = null, $id = null, $header = null)
+    protected static function retrive_list($className, $url, $token, $params = array(), $header = null)
     {
-        if ($id) {
-            $params = array('id' => $id);
-        }
-
         $caller = call_user_func(array($className, 'getInstance'), $className);
         $result = $caller->_curlExcutor(self::REQ_GET, $url, $token, $params, $header);
+
+        return $result;
+    }
+
+
+    protected static function retrive_once($className, $url, $token, $id, $query_str = false, $header = null)
+    {
+        $caller = call_user_func(array($className, 'getInstance'), $className);
+        if ($query_str) {
+            $result = $caller->_curlExcutor(self::REQ_GET, $url, $token, array('id' => $id), $header);
+        } else {
+            $result = $caller->_curlExcutor(self::REQ_GET, $url.$id, $token, array(), $header);
+        }
 
         return $result;
     }
@@ -40,7 +46,7 @@ class Connector
     private function _curlExcutor($method, $url, $token, $params = null, $header = null)
     {
         $ch = curl_init($url);
-        curl_setopt_array($ch, $this->_curlOptionExecutor($method, $token, $params, $header));
+        curl_setopt_array($ch, $this->_curl_options($method, $token, $params, $header));
 
         $result = curl_exec($ch);
 
@@ -55,17 +61,20 @@ class Connector
         return $result;
     }
 
-    private function _curlOptionExecutor($method, $token, $params = null, $header = null)
+    private function _curl_options($method, $token, $params = null, $header = null)
     {
         $accept = 'application/json';
         $content_type = 'application/x-www-form-urlencoded';
 
-        if (array_key_exists('Accept', $header)) {
-            $accept = $header['accept'];
-        }
 
-        if (array_key_exists('Content-Type', $header)) {
-            $contect_type = $header['content_type'];
+        if ($header) {
+            if (array_key_exists('Accept', $header)) {
+                $accept = $header['accept'];
+            }
+
+            if (array_key_exists('Content-Type', $header)) {
+                $contect_type = $header['content_type'];
+            }
         }
 
         $options = array(
@@ -79,7 +88,7 @@ class Connector
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
           CURLOPT_HTTPHEADER => array("Authorization: $token", "Accept: $accept", "Content-Type: $content_type"),
           CURLOPT_POSTFIELDS => http_build_query($params),
-          CURLOPT_USERAGENT => 'KSequencing/0.1.0rc/PHP'.phpversion(),
+          CURLOPT_USERAGENT => 'KSequencing/0.1.0rc/PHP'.phpversion()
         );
 
         return $options;
