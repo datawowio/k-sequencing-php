@@ -5,23 +5,20 @@ require_once dirname(__FILE__).'/../connections/Connector.php';
 
 class Prediction extends Connector
 {
-    const url_endpoint = 'prime/predictions';
-    const url_find_by_id = 'projects/images';
-
     public static function create($token, $params = array())
     {
-        return parent::create_image(get_class(), self::url_endpoint, $token, $params);
+        return parent::create(get_class(), base_url("images").get_path("images", "ai"), $token, $params);
     }
 
-    public static function get($token, $params = array())
+    public static function gets($token, $params = array())
     {
         $params = array('page' => 0, 'paerPage' => 20);
 
-        return parent::get_image(get_class(), self::url_endpoint, $token, $params);
+        return parent::retrive(get_class(), base_url("images").get_path("images", "ai"), $token, $params);
     }
 
-    public static function get_id($token, $params = array())
+    public static function find_id($token, $id)
     {
-        return parent::get_image(get_class(), self::url_find_by_id.'/'.$params['id'], $token, null);
+        return parent::retrive(get_class(), base_url("images").get_path("images", "find"), $token, null, $id, null);
     }
 }

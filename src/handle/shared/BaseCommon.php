@@ -23,3 +23,10 @@ function get_path($type, $model)
 
     return $url[$type][$model];
 }
+
+function base_url($model)
+{
+    $url = array("images"=> "http://localhost:3001/api/", "videos" => "http://localhost:3001/api/",
+           "texts" => "http://localhost:3002/api/", "ai"=> "http://localhost:3001/api/");
+    return url[model];
+}

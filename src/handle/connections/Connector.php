@@ -17,26 +17,30 @@ class Connector
         throw new Exception('Class name not found!!');
     }
 
-    protected static function create_image($className, $url, $token, $params = null)
+    protected static function create($className, $url, $token, $params = null, $header = null)
     {
         $caller = call_user_func(array($className, 'getInstance'), $className);
-        $result = $caller->_curlExcutor(self::REQ_POST, $url, $token, $params);
+        $result = $caller->_curlExcutor(self::REQ_POST, $url, $token, $params, $header);
 
         return $result;
     }
 
-    protected static function get_image($className, $url, $token, $params = null)
+    protected static function retrive($className, $url, $token, $params = null, $id = null, $header = null)
     {
+        if ($id) {
+            $params = array('id' => $id);
+        }
+
         $caller = call_user_func(array($className, 'getInstance'), $className);
-        $result = $caller->_curlExcutor(self::REQ_GET, $url, $token, $params);
+        $result = $caller->_curlExcutor(self::REQ_GET, $url, $token, $params, $header);
 
         return $result;
     }
 
-    private function _curlExcutor($method, $url, $token, $params = null)
+    private function _curlExcutor($method, $url, $token, $params = null, $header = null)
     {
-        $ch = curl_init(self::BASE_API_URL.$url);
-        curl_setopt_array($ch, $this->_curlOptionExecutor($method, $token, $params));
+        $ch = curl_init($url);
+        curl_setopt_array($ch, $this->_curlOptionExecutor($method, $token, $params, $header));
 
         $result = curl_exec($ch);
 
@@ -51,21 +55,32 @@ class Connector
         return $result;
     }
 
-    private function _curlOptionExecutor($method, $token, $params = null)
+    private function _curlOptionExecutor($method, $token, $params = null, $header = null)
     {
+        $accept = 'application/json';
+        $content_type = 'application/x-www-form-urlencoded';
+
+        if (array_key_exists('Accept', $header)) {
+            $accept = $header['accept'];
+        }
+
+        if (array_key_exists('Content-Type', $header)) {
+            $contect_type = $header['content_type'];
+        }
+
         $options = array(
-      CURLOPT_AUTOREFERER => true,
-      CURLOPT_RETURNTRANSFER => true,
-      CURLINFO_HEADER_OUT => true,
-      CURLOPT_CONNECTTIMEOUT => 30,
-      CURLOPT_TIMEOUT => 60,
-      CURLOPT_HEADER => false,
-      CURLOPT_CUSTOMREQUEST => $method,
-      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-      CURLOPT_HTTPHEADER => array("Authorization: $token", 'Accept: application/json', 'Content-Type: application/x-www-form-urlencoded'),
-      CURLOPT_POSTFIELDS => http_build_query($params),
-      CURLOPT_USERAGENT => 'KSequencing/0.1.0rc/PHP'.phpversion(),
-    );
+          CURLOPT_AUTOREFERER => true,
+          CURLOPT_RETURNTRANSFER => true,
+          CURLINFO_HEADER_OUT => true,
+          CURLOPT_CONNECTTIMEOUT => 30,
+          CURLOPT_TIMEOUT => 60,
+          CURLOPT_HEADER => false,
+          CURLOPT_CUSTOMREQUEST => $method,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_HTTPHEADER => array("Authorization: $token", "Accept: $accept", "Content-Type: $content_type"),
+          CURLOPT_POSTFIELDS => http_build_query($params),
+          CURLOPT_USERAGENT => 'KSequencing/0.1.0rc/PHP'.phpversion(),
+        );
 
         return $options;
     }
