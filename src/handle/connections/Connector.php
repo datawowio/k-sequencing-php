@@ -66,7 +66,6 @@ class Connector
         $accept = 'application/json';
         $content_type = 'application/x-www-form-urlencoded';
 
-
         if ($header) {
             if (array_key_exists('Accept', $header)) {
                 $accept = $header['accept'];
