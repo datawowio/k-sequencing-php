@@ -63,19 +63,6 @@ class Connector
 
     private function _curl_options($method, $token, $params = null, $header = null)
     {
-        $accept = 'application/json';
-        $content_type = 'application/x-www-form-urlencoded';
-
-        if ($header) {
-            if (array_key_exists('Accept', $header)) {
-                $accept = $header['accept'];
-            }
-
-            if (array_key_exists('Content-Type', $header)) {
-                $contect_type = $header['content_type'];
-            }
-        }
-
         $options = array(
           CURLOPT_AUTOREFERER => true,
           CURLOPT_RETURNTRANSFER => true,
@@ -85,8 +72,8 @@ class Connector
           CURLOPT_HEADER => false,
           CURLOPT_CUSTOMREQUEST => $method,
           CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-          CURLOPT_HTTPHEADER => array("Authorization: $token", "Accept: $accept", "Content-Type: $content_type"),
-          CURLOPT_POSTFIELDS => http_build_query($params),
+          CURLOPT_HTTPHEADER => array("Authorization: $token","Accept: application/json", "Content-Type: application/json"),
+          CURLOPT_POSTFIELDS => $params,
           CURLOPT_USERAGENT => 'KSequencing/0.1.0rc/PHP'.phpversion()
         );
 
