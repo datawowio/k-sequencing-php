@@ -35,15 +35,15 @@ class Connector
     {
         $caller = call_user_func(array($className, 'getInstance'), $className);
         if ($query_str) {
-            $result = $caller->_curlExcutor(self::REQ_GET, $url, $token, array('id' => $id), $header);
+            $result = $caller->_curl_excutor(self::REQ_GET, $url, $token, array('id' => $id), $header);
         } else {
-            $result = $caller->_curlExcutor(self::REQ_GET, $url.$id, $token, array(), $header);
+            $result = $caller->_curl_excutor(self::REQ_GET, $url.$id, $token, array(), $header);
         }
 
         return $result;
     }
 
-    private function _curlExcutor($method, $url, $token, $params = null, $header = null)
+    private function _curl_excutor($method, $url, $token, $params = null, $header = null)
     {
         $ch = curl_init($url);
         curl_setopt_array($ch, $this->_curl_options($method, $token, $params, $header));
