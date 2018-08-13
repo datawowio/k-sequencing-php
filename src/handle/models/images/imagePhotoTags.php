@@ -14,11 +14,11 @@ class ImagePhotoTag extends Connector
     {
         $params = array('page' => 0, 'paerPage' => 20);
 
-        return parent::retrive_list(get_class(), base_url('images').get_path('images', 'photo_tag'), $token, json_encode($params));
+        return parent::retrieve_list(get_class(), base_url('images').get_path('images', 'photo_tag'), $token, json_encode($params));
     }
 
     public static function find_id($token, $params = array())
     {
-        return parent::retrive_once(get_class(), base_url('images').get_path('images', 'find'), $token, $id);
+        return parent::retrieve_once(get_class(), base_url('images').get_path('images', 'find'), $token, $id);
     }
 }

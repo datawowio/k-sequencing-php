@@ -22,7 +22,7 @@ class Connector
         return $result;
     }
 
-    protected static function retrive_list($className, $url, $token, $params = array(), $header = null)
+    protected static function retrieve_list($className, $url, $token, $params = array(), $header = null)
     {
         $caller = call_user_func(array($className, 'getInstance'), $className);
         $result = $caller->_curlExcutor(self::REQ_GET, $url, $token, $params, $header);
@@ -31,7 +31,7 @@ class Connector
     }
 
 
-    protected static function retrive_once($className, $url, $token, $id, $query_str = false, $header = null)
+    protected static function retrieve_once($className, $url, $token, $id, $query_str = false, $header = null)
     {
         $caller = call_user_func(array($className, 'getInstance'), $className);
         if ($query_str) {
