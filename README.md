@@ -27,221 +27,72 @@ or (Global setup)
 composer install 
 ```
 
-After you run composer install then you will have folder ```vendor/``` to store your libs. Now you can load those lib via
+After you run composer install then you will have folder ```vendor/``` to store your libs. Now you can load those libs via
 ```php
 require_once dirname(__FILE__).'/vendor/autoload.php';
 ```
 
 
-# Usage 
+# APIs explanation 
+There are 4 models for our API and each of its there are 3 operations to use such as _Create_, _list data_ and _find by id_. We've going to show you what APIs we have .
 
-```php 
-<?php 
+#### Image model. We have 4 APIs
 
-require_once dirname(__FILE__).'/vendor/autoload.php';
-
-$params = array('instruction' => 'face', 'categories' => 'face eye ear', 'data' => 'www.url-of-image.com', 'postback_url' => 'www.your-callback.url', 'multiple' => true);
-
-$project_token = 'yourToekn'
-
-$res = ImageChoices::create($project_token, $params);
-$res = json_decode($res, true);
-// print_r($res);
-
-// find by id
-$params = array('id' => $res["data"]["id"]);
-$res = ImageChoices::get_id($project_token, $params);
-// print_r(json_decode($s));
-
-// list all data 
-$res = ImageChoices::get($project_token);
-// print_r($res);
+- ImageChoice
+- ImageClosedQuestion
+- ImageMessage
+- ImagePhotoTag
 
 
-```
+#### Text model. We have 3 APIs
+
+- Category
+- Conversation
+- TextClosedQuestion
+
+#### Video model. We have 1 APIs
+
+- VideoClassify
 
 
-# Response 
-Structure of response 
-```php 
-Array
-(
-    [data] => Array
-        (
-            [id] => 59dda6bb60f4f1231eff23ff
-            [answer] => Array
-                (
-                )
+#### Prediction model. We have 1 APIs
 
-            [categories] => Array
-                (
-                    [0] => face
-                    [1] => eye
-                    [2] => ear
-                )
-
-            [credit_charged] => 0
-            [custom_id] => 
-            [data] => https://image.url
-            [instruction] => face
-            [multiple] => 1
-            [postback_url] => https://your.url/
-            [processed_at] => 
-            [project_id] => 67
-            [status] => unprocess
-        )
-
-    [meta] => Array
-        (
-            [code] => 200
-            [message] => success
-        )
-
-)
-
-```
+- Predictor
 
 
-# List of API Provider
 
-#### Image Choices
-
-##### Get list
+### Model functions
+For create data use `create()`
 ```php
-ImageChoices::get($project_token, $params);
+/**
+@param string $token 
+@param array $params
+**/
+ImageChoice::create($token, $params);
 ```
-##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *page* **(string, optional)**: Default 0
-> - *limit* **(string, optional)**: Default 20
-
-
- 
-##### Create
+For query list of data use `gets()`
 ```php
-ImageChoices::create($project_token, $params);
-```
-##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *instruction* **(string, require)**
-> - *categories* **(string group, require)**: separate group by space ``` name1 name2 name3 ```
-> - *data* **(string URL, require, optional)**
-> - *postback_url* **(string URL, optional)**
-> - *multiple* **(boolean, optional)**: Default is ``` false ```
-> - *postback_method* **(string, optional)**: Default with your project setting. if you set this parameter that will be override your default setting
-> - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
-
-
-##### Find by ID 
-
-```js
-ImageChoices::get_id($project_token, $params);
-```
-##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *id* **(string, optional)**: Default 0
-
-
-----------
-#### Image Closed Question
-##### Get list
+/**
+@param string $token 
+@param array $params
+**/
+ImageChoice::gets($token, $params);
+``` 
+For find data by ID use `find_id()`
 ```php
-ImageClosedQuestions::get($project_token, $params);
-```
-##### params
-> - *page* **(string, optional)**: Default 0
-> - *limit* **(string, optional)**: Default 20
+/**
+@param string $token 
+@param string|int $id
+**/
+ImageChoice::find_id($token, $id);
+``` 
+Every function that being used must have `$token` which is a project token and  `$params` is a parameter that required for each model. For `$params` we've going to explanation in a usage section o or click [link](www.google.con) jump to the usage section
 
 
- 
-##### Create
-```php
-ImageClosedQuestions::create($project_token, $params);
-```
-##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *data* **(string URL, require, optional)**
-> - *postback_url* **(string URL, optional)**
-> - *postback_method* **(string, optional)**: Default with your project setting. if you set this parameter that will be override your default setting
-> - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
 
+# Demo and Usage
 
-##### Find by ID 
-
-```php
-ImageClosedQuestions::get_id($project_token, $params);
-```
-##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *id* **(string, optional)**: Default 0
-
-----------
-#### Image Messages
-
-##### Get list
-```php
-ImageMessages::get($project_token, $params);
-```
-##### params
-> - *page* **(string, optional)**: Default 0
-> - *limit* **(string, optional)**: Default 20
-
-
- 
-##### Create
-```js
-ImageMessages::create($project_token, $params);
-```
-##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *instruction* **(string, require)**
-> - *data* **(string URL, require, optional)**
-> - *postback_url* **(string URL, optional)**
-> - *postback_method* **(string, optional)**: Default with your project setting. if you set this parameter that will be override your default setting
-> - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
-
-
-##### Find by ID 
-
-```php
-ImageMessages::get_id($project_token, $params);
-```
-##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *id* **(string, optional)**: Default 0
-
-----------
-#### Photo tags
-
-##### Get list
-```php 
-ImagePhotoTags::get_id($project_token, $params);
-```
-##### params
-> - *page* **(string, optional)**: Default 0
-> - *limit* **(string, optional)**: Default 20
-
-
- 
-##### Create
-```php
-ImagePhotoTags::create($project_token, $params);
-```
-##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *instruction* **(string, require)**
-> - *data* **(string URL, require, optional)**
-> - *postback_url* **(string URL, optional)**
-> - *postback_method* **(string, optional)**: Default with your project setting. if you set this parameter that will be override your default setting
-> - *custom_id* **(string, optional)**: Use to custom ``` Primary key ``` of data row
-
-
-##### Find by ID 
-
-```js
-ImagePhotoTags::get_id($project_token, $params);
-```
-##### params
-> - *Authorization* **(string, header, require)**: Token of your project
-> - *id* **(string, optional)**: Default 0
-
+ - Image Documentation [link](README/image_docs.md)
+ - Video Documentation [link](README/video_docs.md)
+ - Text Documentation [link](README/text_docs.md)
+ - AI/Prediction Documentation [link](README/ai_docs.md)
