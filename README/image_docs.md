@@ -73,7 +73,7 @@ ImagePhotoTag::create($token, $params);
 
 
 ## Query list of data by `gets()`
-for `$params` we've going to explant parameter that `gets()`  has been defined
+For `$params` we've going to explant parameter that `gets()`  has been defined
 
 ```php
 YourClass::gets(array('page' => 1, 'per_page' => 20))
