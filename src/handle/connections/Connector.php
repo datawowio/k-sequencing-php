@@ -17,7 +17,7 @@ class Connector
     protected static function create_data($className, $url, $token, $params = array(), $header = null)
     {
         $caller = call_user_func(array($className, 'getInstance'), $className);
-        $result = $caller->_curlExcutor(self::REQ_POST, $url, $token, $params, $header);
+        $result = $caller->_curl_excutor(self::REQ_POST, $url, $token, $params, $header);
 
         return $result;
     }
@@ -25,7 +25,7 @@ class Connector
     protected static function retrieve_list($className, $url, $token, $params = array(), $header = null)
     {
         $caller = call_user_func(array($className, 'getInstance'), $className);
-        $result = $caller->_curlExcutor(self::REQ_GET, $url, $token, $params, $header);
+        $result = $caller->_curl_excutor(self::REQ_GET, $url, $token, $params, $header);
 
         return $result;
     }
